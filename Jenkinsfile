@@ -14,10 +14,17 @@ pipeline {
             }
         }
 
+        stage('Archive'){
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar'
+            }
+        }
+
         stage('Test') {
             steps {
                 echo 'Testing...'
             }
         }
+        
     }
 }
